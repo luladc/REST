@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Persona;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Persona>
+ */
+class PersonaFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'ci' => fake()->unique()->numerify('########'),
+            'nombres' => fake()->firstName(),
+            'apellidos' => fake()->lastName() . ' ' . fake()->lastName(),
+            'fecha_nacimiento' => fake()->date('Y-m-d', '-18 years'),
+            'telefono' => fake()->optional()->numerify('7#######'),
+        ];
+    }
+}
